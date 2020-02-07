@@ -4,7 +4,10 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
-public class Ball extends Tablero{
+import javax.swing.JPanel;
+
+@SuppressWarnings("serial")
+public class Ball extends JPanel{
     int x;
     int y;
 // Velocidad a la que se suman
@@ -43,18 +46,21 @@ public class Ball extends Tablero{
 		g2d.fillOval(x, y, 30, 30);
     }
     
-    private void moveBall() {
-		if (x + xa < 0)
-			xa = 1;
-		if (x + xa > getWidth() - 30)
-			xa = -1;
-		if (y + ya < 0)
-			ya = 1;
-		if (y + ya > getHeight() - 30)
-			ya = -1;
+    public void moveBall() {
+		if (this.x + this.xa < 0)
+            this.xa = 1;
 
-		x = x + xa;
-		y = y + ya;
+		if (this.x + this.xa > getWidth() - 30)
+            this.xa = -1;
+
+		if (this.y + this.ya < 0)
+            this.ya = 1;
+
+		if (this.y + this.ya > getHeight() - 30)
+            this.ya = -1;
+
+		this.x = this.x + this.xa;
+		this.y = this.y + this.ya;
     }
 
    
