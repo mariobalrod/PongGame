@@ -3,9 +3,9 @@ package juego;
 import classes.*;
 
 import javax.swing.JFrame;
-
 public class Game {
 	public static void main(String[] args) {
+
 
 		//Creando valores del Tablero
 		Tablero tablero = new Tablero("Pong Game", 1000, 500);
@@ -13,7 +13,6 @@ public class Game {
 		JFrame frame = tablero.crearFrame();
 		//Frame -> Visible
 		frame.setVisible(true);
-		
 	}
 
 	// int x = 0;
