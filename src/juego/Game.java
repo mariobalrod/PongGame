@@ -4,15 +4,31 @@ import classes.*;
 
 import javax.swing.JFrame;
 public class Game {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException{
 
 
 		//Creando valores del Tablero
 		Tablero tablero = new Tablero("Pong Game", 1000, 500);
 		//Creamos el frameTablero
 		JFrame frame = tablero.crearFrame();
+
+		//Creando la Bola
+		Ball ball = new Ball(0, 0, 1, 1);
+
+		frame.add(ball);
+
 		//Frame -> Visible
 		frame.setVisible(true);
+
+		
+
+
+		//Movimiento de la Bola
+		while(true) {
+			ball.moveBall();
+			ball.repaint();
+			Thread.sleep(5);
+		}
 	}
 
 	// int x = 0;
