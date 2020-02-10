@@ -1,11 +1,14 @@
 package classes;
+
+import juego.Game;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JPanel;
 //import java.awt.Graphics2D;
 //import java.awt.RenderingHints;
 
-public class MyPanel extends JPanel {
+public class Jugadores extends JPanel {
 
     int x;
     int y; // Variable y sera controlada por eventos de teclado
@@ -13,14 +16,10 @@ public class MyPanel extends JPanel {
     int xa;
     int ya;
 
-    public MyPanel() {
-    }
+    private Game game;
 
-    public MyPanel(int x, int y, int xa, int ya) {
-        this.x = x;
-        this.y = y;
-        this.xa = xa;
-        this.ya = ya;
+    public Jugadores(Game game) {
+        this.game = game;
     }
 
     private static final long serialVersionUID = 1L;

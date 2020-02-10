@@ -15,6 +15,8 @@ public class Game extends JPanel{
 
 	//Creando la Bola
 	Ball ball = new Ball(this);
+	//Creando Jugadores
+	Jugadores jugadores = new Jugadores(this);
 	
 	//Creando el Score
 	Score score = new Score(0, 0);
@@ -58,7 +60,8 @@ public class Game extends JPanel{
 		Graphics2D g2d = (Graphics2D) g;
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-		ball.paint(g2d);		
+		ball.paint(g2d);
+		jugadores.paint(g2d);		
 
 		g2d.setColor(Color.GRAY);
 		g2d.setFont(new Font("Verdana", Font.BOLD, 30));
