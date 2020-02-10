@@ -3,74 +3,66 @@ package juego;
 import classes.*;
 
 import javax.swing.JFrame;
-public class Game {
+import javax.swing.JPanel;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.RenderingHints;
+
+@SuppressWarnings("serial")
+public class Game extends JPanel{
+
+	//Creando la Bola
+	Ball ball = new Ball(this);
+	
+	//Creando el Score
+	Score score = new Score(0, 0);
+
 	public static void main(String[] args) throws InterruptedException{
-
-
-		//Creando valores del Tablero
-		Tablero tablero = new Tablero("Pong Game", 1000, 500);
+		
+		Game game = new Game();
+		
 		//Creamos el frameTablero
-		JFrame frame = tablero.crearFrame();
+		JFrame frame = new JFrame("Pong Game");
+		frame.setSize(1000, 500);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setResizable(false);
 
-		//Creando la Bola
-		Ball ball = new Ball(0, 0, 1, 1);
+		//Añadiendo objetos del juego al frame (Tablero, ball, score)
+		frame.add(game);
 
-		frame.add(ball);
+		//Establecer la posicion de la ventana
+		frame.setLocation(450, 250);
 
 		//Frame -> Visible
 		frame.setVisible(true);
 
-		
-
 
 		//Movimiento de la Bola
 		while(true) {
-			ball.moveBall();
-			ball.repaint();
+			game.move();
+			game.repaint();
 			Thread.sleep(5);
 		}
 	}
 
-	// int x = 0;
-	// int y = 0;
-	// int xa = 1;
-	// int ya = 1;
+	//Movimientos del Juego
+	private void move() {
+		ball.moveBall();
+	}
+	
+	@Override
+	public void paint(Graphics g) {
+		super.paint(g);
+		Graphics2D g2d = (Graphics2D) g;
+		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-	// private void moveBall() {
-	// 	if (x + xa < 0)
-	// 		xa = 1;
-	// 	if (x + xa > getWidth() - 30)
-	// 		xa = -1;
-	// 	if (y + ya < 0)
-	// 		ya = 1;
-	// 	if (y + ya > getHeight() - 30)
-	// 		ya = -1;
+		ball.paint(g2d);		
 
-	// 	x = x + xa;
-	// 	y = y + ya;
-	// }
-
-	// @Override
-	// public void paint(Graphics g) {
-	// 	super.paint(g);
-	// 	Graphics2D g2d = (Graphics2D) g;
-	// 	g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-	// 	g2d.fillOval(x, y, 30, 30);
-	// }
-
-	// public static void main(String[] args) throws InterruptedException {
-	// 	JFrame frame = new JFrame("Pong Game");
-	// 	Game game = new Game();
-	// 	frame.add(game);
-	// 	frame.setSize(1000, 500);
-	// 	frame.setVisible(true);
-	// 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-	// 	while (true) {
-	// 		game.moveBall();
-	// 		game.repaint();
-	// 		Thread.sleep(5);
-	// 	}
-	// }
+		g2d.setColor(Color.GRAY);
+		g2d.setFont(new Font("Verdana", Font.BOLD, 30));
+		g2d.drawString(String.valueOf(score.getScoreJug1() + " | " + score.getScoreJug2()), 460, 30);
+    }
 
 }
