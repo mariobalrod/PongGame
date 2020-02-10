@@ -9,6 +9,8 @@ import java.awt.Graphics2D;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.RenderingHints;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 @SuppressWarnings("serial")
 public class Game extends JPanel{
@@ -20,11 +22,11 @@ public class Game extends JPanel{
 	Jugador2 jugador2 = new Jugador2(this);
 	//Creando el Score
 	Score score = new Score(0, 0);
+	
 
 	public static void main(String[] args) throws InterruptedException{
 		
 		Game game = new Game();
-		
 		
 		//Creamos el frameTablero
 		JFrame frame = new JFrame("Pong Game");
@@ -44,7 +46,6 @@ public class Game extends JPanel{
 
 		//Movimiento de la Bola
 		while(true) {
-			
 			game.move();
 			game.repaint();
 			Thread.sleep(5);
@@ -55,6 +56,8 @@ public class Game extends JPanel{
 	//Movimientos del Juego
 	private void move() {
 		ball.moveBall();
+		jugador1.move();
+		jugador2.move();
 	}
 	
 	@Override
@@ -70,6 +73,25 @@ public class Game extends JPanel{
 		g2d.setColor(Color.GRAY);
 		g2d.setFont(new Font("Verdana", Font.BOLD, 30));
 		g2d.drawString(String.valueOf(score.getScoreJug1() + " | " + score.getScoreJug2()), 460, 30);
-    }
+	}
+	
+	public Game() {
+		addKeyListener(new KeyListener() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+			}
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+				jugador2.keyReleased(e);
+			}
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+				jugador2.keyPressed(e);
+			}
+		});
+		setFocusable(true);
+	}
 
 }

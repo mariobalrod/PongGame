@@ -11,9 +11,10 @@ public class Ball extends JPanel{
 
     int x = 0;
     int y = 0;
+    
     // Velocidad a la que se suman
-    int xa = 1;
-    int ya = 1;
+    int xa = 2;
+    int ya = 2;
 
     private Game game;
 
