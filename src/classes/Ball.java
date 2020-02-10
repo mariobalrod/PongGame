@@ -40,7 +40,7 @@ public class Ball extends JPanel{
 
     
 	public void paint(Graphics g) {
-		g.fillOval(x, y, 30, 30);
+		g.fillOval(x, y, 25, 25);
     }
     
     public void moveBall() {

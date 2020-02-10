@@ -1,32 +1,31 @@
 package classes;
 
-import juego.Game;
-
-import java.awt.Color;
 import java.awt.Graphics;
-import javax.swing.JPanel;
-//import java.awt.Graphics2D;
-//import java.awt.RenderingHints;
 
-public class Jugadores extends JPanel {
 
-    int x;
-    int y; // Variable y sera controlada por eventos de teclado
-    // variable ya y xa = constantes
-    int xa;
-    int ya;
+public interface Jugadores{
 
-    private Game game;
+    void paint(Graphics j);
+    void move();
+
+    //int y1;                             //Coordenadas y del jugador 1(eventos de movimiento).
+    //int y2;                             //Coordenadas y del jugador 2(eventos de movimiento).
+
+    /*private Game game;
 
     public Jugadores(Game game) {
         this.game = game;
-    }
+    }*/
 
-    private static final long serialVersionUID = 1L;
+    
 
-    public void paint(Graphics j2) {   
-        j2.setColor(Color.red);
-        j2.drawRect(0, 0, 50, 20);       
+    /*public void paint(Graphics j1) {   
+        j1.setColor(Color.BLACK);
+        j1.fillRect(20, 60, 10, 80);       
     }
   
+    public void paint2(Graphics j2) {   
+        j2.setColor(Color.BLACK);
+        j2.fillRect(game.getWidth()-30, 60, 10, 80);       
+    }*/
 }
