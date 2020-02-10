@@ -1,36 +1,33 @@
 package classes;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
 
 import javax.swing.*;
 
-public class Score extends JFrame {
+@SuppressWarnings("serial")
+public class Score extends JPanel {
 
-	private char[] getScore;
-	public MiMarco() {
-		
-		this("Juego Pong");
+	int scoreJug1;
+	int scoreJug2;
+
+	public Score(int scoreJug1, int scoreJug2){
+		this.scoreJug1 = scoreJug1;
+		this.scoreJug2 = scoreJug2;
 	}
-	public MiMarco(String name) {
-		
-		this.setTitle(name);
-		this.setSize(600,300);
-		this.setResizable(false);;
-		
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setVisible(true);
+
+	//Metodos GET
+	public int getScoreJug1(){
+		return this.scoreJug1;
 	}
-	@Override
-	public void paint(Graphics g) {
-		super.paint(g);
-		Graphics2D g2d = (Graphics2D) g;
-		g2d.setColor(Color.GRAY);
-		g2d.setFont(new Font("Verdana", Font.BOLD, 30));
-		g2d.drawString(String.valueOf("0 | 0"), 100,150); 
-		
- }
+	public int getScoreJug2(){
+		return this.scoreJug2;
+	}
+
+	//Metodos SET
+	public void setScoreJug1(int scoreJug1){
+		this.scoreJug1 = scoreJug1;
+	}
+	public void setScoreJug2(int scoreJug2){
+		this.scoreJug2 = scoreJug2;
+	}
+
 }

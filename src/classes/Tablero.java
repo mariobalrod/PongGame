@@ -2,6 +2,7 @@ package classes;
 
 import javax.swing.JFrame;
 
+@SuppressWarnings("serial")
 public class Tablero extends JFrame{
 	String nombreJuego;
 	int width;
@@ -25,6 +26,7 @@ public class Tablero extends JFrame{
 		JFrame frame = new JFrame(this.nombreJuego);
 		frame.setSize(this.width, this.height);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setResizable(false);
 		return frame;
 	}
 	
