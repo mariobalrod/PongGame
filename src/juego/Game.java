@@ -83,11 +83,13 @@ public class Game extends JPanel{
 
 			@Override
 			public void keyReleased(KeyEvent e) {
+				jugador1.keyReleased(e);
 				jugador2.keyReleased(e);
 			}
 
 			@Override
 			public void keyPressed(KeyEvent e) {
+				jugador1.keyPressed(e);
 				jugador2.keyPressed(e);
 			}
 		});

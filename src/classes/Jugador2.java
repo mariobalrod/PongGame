@@ -36,10 +36,10 @@ public class Jugador2 implements Jugadores {
     }
   
     public void keyPressed(KeyEvent e) {
-      if (e.getKeyCode() == KeyEvent.VK_SHIFT)
-        xa = -1;
-      if (e.getKeyCode() == KeyEvent.VK_CONTROL)
-        xa = 1;
+      if (e.getKeyCode() == KeyEvent.VK_UP)
+        xa = -2;
+      if (e.getKeyCode() == KeyEvent.VK_DOWN)
+        xa = 2;
     }
 
 }
