@@ -3,6 +3,7 @@ package juego;
 import classes.*;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -13,16 +14,16 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 @SuppressWarnings("serial")
-public class Game extends JPanel{
+public class Game extends JPanel { 
 
 	
 	//Creando la Bola
 	Ball ball = new Ball(this);
 	//Creando Jugadores
-	Jugador1 jugador1 = new Jugador1(this);
-	Jugador2 jugador2 = new Jugador2(this);
+	public Jugador1 jugador1 = new Jugador1(this);
+	public Jugador2 jugador2 = new Jugador2(this);
 	//Creando el Score
-	Score score = new Score(0, 0);
+	public Score score = new Score(0, 0);
 	
 
 	public static void main(String[] args) throws InterruptedException{
@@ -49,7 +50,7 @@ public class Game extends JPanel{
 		while(true) {
 			game.move();
 			game.repaint();
-			Thread.sleep(5);
+			game.run();
 		}
 		
 	}
@@ -95,6 +96,19 @@ public class Game extends JPanel{
 			}
 		});
 		setFocusable(true);
+	}
+
+	public void run() {
+		try{
+            Thread.sleep(5);
+        }catch(InterruptedException e){
+            System.out.println(e);
+        }
+	}
+
+	public void gameOver() {
+		JOptionPane.showMessageDialog(this, "Game Over", "Game Over", JOptionPane.YES_NO_OPTION);
+		System.exit(ABORT);
 	}
 
 }

@@ -23,11 +23,11 @@ public class Score extends JPanel {
 	}
 
 	//Metodos SET
-	public void setScoreJug1(int scoreJug1){
-		this.scoreJug1 = scoreJug1;
+	public void setScoreJug1(){
+		this.scoreJug1++;
 	}
-	public void setScoreJug2(int scoreJug2){
-		this.scoreJug2 = scoreJug2;
+	public void setScoreJug2(){
+		this.scoreJug2++;
 	}
 
 }

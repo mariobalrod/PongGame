@@ -41,4 +41,8 @@ public class Jugador1 implements Jugadores {
         xa = 2;
     }
 
+    public Rectangle getBounds() {
+      return new Rectangle(20, this.y, 10, 80);
+    }
+
 }

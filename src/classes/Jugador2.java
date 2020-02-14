@@ -42,4 +42,8 @@ public class Jugador2 implements Jugadores {
         xa = 2;
     }
 
+    public Rectangle getBounds() {
+        return new Rectangle(game.getWidth()-30, this.y, 10, 80);
+    }
+
 }
