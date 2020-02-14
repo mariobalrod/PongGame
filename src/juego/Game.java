@@ -15,6 +15,7 @@ import java.awt.event.KeyListener;
 @SuppressWarnings("serial")
 public class Game extends JPanel{
 
+	
 	//Creando la Bola
 	Ball ball = new Ball(this);
 	//Creando Jugadores
@@ -81,7 +82,7 @@ public class Game extends JPanel{
 			public void keyTyped(KeyEvent e) {
 			}
 
-			@Override
+			
 			public void keyReleased(KeyEvent e) {
 				jugador1.keyReleased(e);
 				jugador2.keyReleased(e);
@@ -90,7 +91,7 @@ public class Game extends JPanel{
 			@Override
 			public void keyPressed(KeyEvent e) {
 				jugador1.keyPressed(e);
-				jugador2.keyPressed(e);
+				jugador2.keyPressed(e);				
 			}
 		});
 		setFocusable(true);
